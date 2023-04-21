@@ -13,3 +13,7 @@ To use this weather application all you need to do is type in your city or state
 
 # UNSOLVED PROBLEMS
 Currently there are no unsolved problems the app is fully functioning and displaying exactis meant to display.
+
+
+# FUTURE GOALS
+My future goals for this project is adding more functionality and css work, i'd like for the background image to change depending on the temperature of the selected location.
