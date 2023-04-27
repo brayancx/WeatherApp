@@ -1,5 +1,9 @@
 import React, {useState} from 'react'
 import axios from 'axios';
+// import Main from './components/Main'
+
+
+
 function App() {
   const [data,setData] = useState({})
   const [location, setLocation] = useState('')
@@ -21,15 +25,14 @@ function App() {
   return (
     <div className="app">
       <div className='search'>
+        <p>Weather App</p>
         <input
         value={location}
         onChange={event => setLocation(event.target.value)}
         onKeyDown={searchLocation}
-        placeholder='Enter Location'
+        placeholder='Search'
         type='text'/>
-        
-
-      </div>
+        </div>
 
       <div className='container'>
         <div className='top'>
@@ -41,6 +44,11 @@ function App() {
           <div className='temp'>
             {data.main ? <h1>{data.main.temp.toFixed()}°F</h1> : null}
           </div>
+          
+
+          <div className='box'>
+          <img src= {"http://openweathermap.org/img/w/" + data?.weather?.[0]?.icon + ".png"} alt="main" />
+          </div>
 
           <div className='description'>
             {data.weather ? <p>{data.weather[0].main}</p> : null }
@@ -50,17 +58,19 @@ function App() {
           {data.name !== undefined &&
         <div className='bottom'>
           <div className='feels'>
-            {data.main ? <p className='bold'>{data.main.feels_like.toFixed()}°F</p> : null}
-            <p>Feels Like</p>
+          <p>Feels Like</p>
+            {data.main ? 
+            <p className='bold'>
+              {data.main.feels_like.toFixed()}°F</p> : null}
+            
           </div>
           <div className='humidity'>
-            {data.main ? <p className='bold'>{data.main.humidity.toFixed()}%</p> : null }
-            <p>Humidity</p> 
+          <p>Humidity</p> 
+            {data.main ? <p className='bold'>
+              {data.main.humidity.toFixed()}%</p> : null }
+            
           </div>
-          <div className='wind'>
-            {data.wind ? <p className='bold'>{data.wind.speed.toFixed()} MPH </p> : null }
-            <p>Wind Speed</p>
-          </div>
+      
         </div>
           } 
 
