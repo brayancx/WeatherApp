@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import axios from 'axios';
 // import Main from './components/Main'
+import Temp from './components/Temp'
 
 
 
@@ -39,6 +40,7 @@ function App() {
 
           <div className='location'>
             <p>{data.name}</p>
+            
           </div>
 
           <div className='temp'>
@@ -60,7 +62,7 @@ function App() {
           <div className='feels'>
           <p>Feels Like</p>
             {data.main ? 
-            <p className='bold'>
+            <p className='letters'>
               {data.main.feels_like.toFixed()}°F</p> : null}
             
           </div>
